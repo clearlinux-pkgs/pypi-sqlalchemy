@@ -5,14 +5,15 @@
 # Source0 file verified with key 0x330239C1C4DAFEE1 (classic@zzzcomputing.com)
 #
 Name     : pypi-sqlalchemy
-Version  : 1.4.30
-Release  : 143
-URL      : https://files.pythonhosted.org/packages/3a/42/923c4f9b9aa0c88a616f61f05ee5d2237ee782de86ae84d9bd5338ec8ff2/SQLAlchemy-1.4.30.tar.gz
-Source0  : https://files.pythonhosted.org/packages/3a/42/923c4f9b9aa0c88a616f61f05ee5d2237ee782de86ae84d9bd5338ec8ff2/SQLAlchemy-1.4.30.tar.gz
-Source1  : https://files.pythonhosted.org/packages/3a/42/923c4f9b9aa0c88a616f61f05ee5d2237ee782de86ae84d9bd5338ec8ff2/SQLAlchemy-1.4.30.tar.gz.asc
+Version  : 1.4.31
+Release  : 144
+URL      : https://files.pythonhosted.org/packages/0f/80/d8883f12689a55e333d221bb9a56c727e976f5a8e9dc862efeac9f40d296/SQLAlchemy-1.4.31.tar.gz
+Source0  : https://files.pythonhosted.org/packages/0f/80/d8883f12689a55e333d221bb9a56c727e976f5a8e9dc862efeac9f40d296/SQLAlchemy-1.4.31.tar.gz
+Source1  : https://files.pythonhosted.org/packages/0f/80/d8883f12689a55e333d221bb9a56c727e976f5a8e9dc862efeac9f40d296/SQLAlchemy-1.4.31.tar.gz.asc
 Summary  : Database Abstraction Library
 Group    : Development/Tools
 License  : MIT
+Requires: pypi-sqlalchemy-license = %{version}-%{release}
 Requires: pypi-sqlalchemy-python = %{version}-%{release}
 Requires: pypi-sqlalchemy-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
@@ -28,6 +29,14 @@ SQLALCHEMY UNIT TESTS
 =====================
 Basic Test Running
 ==================
+
+%package license
+Summary: license components for the pypi-sqlalchemy package.
+Group: Default
+
+%description license
+license components for the pypi-sqlalchemy package.
+
 
 %package python
 Summary: python components for the pypi-sqlalchemy package.
@@ -50,15 +59,15 @@ python3 components for the pypi-sqlalchemy package.
 
 
 %prep
-%setup -q -n SQLAlchemy-1.4.30
-cd %{_builddir}/SQLAlchemy-1.4.30
+%setup -q -n SQLAlchemy-1.4.31
+cd %{_builddir}/SQLAlchemy-1.4.31
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1642702368
+export SOURCE_DATE_EPOCH=1642783708
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -70,6 +79,8 @@ python3 setup.py build
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/pypi-sqlalchemy
+cp %{_builddir}/SQLAlchemy-1.4.31/LICENSE %{buildroot}/usr/share/package-licenses/pypi-sqlalchemy/9425969aa233e93e4e8a48a106b23b1aaa529d83
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -77,6 +88,10 @@ echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/pypi-sqlalchemy/9425969aa233e93e4e8a48a106b23b1aaa529d83
 
 %files python
 %defattr(-,root,root,-)

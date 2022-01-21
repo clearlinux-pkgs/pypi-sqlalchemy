@@ -1,5 +1,5 @@
 PKG_NAME := pypi-sqlalchemy
-URL = https://files.pythonhosted.org/packages/3a/42/923c4f9b9aa0c88a616f61f05ee5d2237ee782de86ae84d9bd5338ec8ff2/SQLAlchemy-1.4.30.tar.gz
+URL = https://files.pythonhosted.org/packages/0f/80/d8883f12689a55e333d221bb9a56c727e976f5a8e9dc862efeac9f40d296/SQLAlchemy-1.4.31.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
