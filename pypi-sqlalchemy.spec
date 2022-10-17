@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x330239C1C4DAFEE1 (classic@zzzcomputing.com)
 #
 Name     : pypi-sqlalchemy
-Version  : 1.4.41
-Release  : 156
-URL      : https://files.pythonhosted.org/packages/67/a0/97da2cb07e013fd6c37fd896a86b374aa726e4161cafd57185e8418d59aa/SQLAlchemy-1.4.41.tar.gz
-Source0  : https://files.pythonhosted.org/packages/67/a0/97da2cb07e013fd6c37fd896a86b374aa726e4161cafd57185e8418d59aa/SQLAlchemy-1.4.41.tar.gz
-Source1  : https://files.pythonhosted.org/packages/67/a0/97da2cb07e013fd6c37fd896a86b374aa726e4161cafd57185e8418d59aa/SQLAlchemy-1.4.41.tar.gz.asc
+Version  : 1.4.42
+Release  : 157
+URL      : https://files.pythonhosted.org/packages/e4/56/8ea85eaab7d93b58f9c213ad8fc5882838189a29fc8cc401d80710a12969/SQLAlchemy-1.4.42.tar.gz
+Source0  : https://files.pythonhosted.org/packages/e4/56/8ea85eaab7d93b58f9c213ad8fc5882838189a29fc8cc401d80710a12969/SQLAlchemy-1.4.42.tar.gz
+Source1  : https://files.pythonhosted.org/packages/e4/56/8ea85eaab7d93b58f9c213ad8fc5882838189a29fc8cc401d80710a12969/SQLAlchemy-1.4.42.tar.gz.asc
 Summary  : Database Abstraction Library
 Group    : Development/Tools
 License  : MIT
@@ -80,10 +80,10 @@ python3 components for the pypi-sqlalchemy package.
 
 
 %prep
-%setup -q -n SQLAlchemy-1.4.41
-cd %{_builddir}/SQLAlchemy-1.4.41
+%setup -q -n SQLAlchemy-1.4.42
+cd %{_builddir}/SQLAlchemy-1.4.42
 pushd ..
-cp -a SQLAlchemy-1.4.41 buildavx2
+cp -a SQLAlchemy-1.4.42 buildavx2
 popd
 
 %build
@@ -91,7 +91,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1662568569
+export SOURCE_DATE_EPOCH=1666020509
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
