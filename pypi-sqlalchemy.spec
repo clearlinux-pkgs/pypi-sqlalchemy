@@ -5,17 +5,16 @@
 # Source0 file verified with key 0x330239C1C4DAFEE1 (classic@zzzcomputing.com)
 #
 Name     : pypi-sqlalchemy
-Version  : 1.4.45
-Release  : 162
-URL      : https://files.pythonhosted.org/packages/76/d5/9ce70fd0d2858c72ecacff0c0518e9ddfbbaf4753b85e49f6d94ad74de36/SQLAlchemy-1.4.45.tar.gz
-Source0  : https://files.pythonhosted.org/packages/76/d5/9ce70fd0d2858c72ecacff0c0518e9ddfbbaf4753b85e49f6d94ad74de36/SQLAlchemy-1.4.45.tar.gz
-Source1  : https://files.pythonhosted.org/packages/76/d5/9ce70fd0d2858c72ecacff0c0518e9ddfbbaf4753b85e49f6d94ad74de36/SQLAlchemy-1.4.45.tar.gz.asc
+Version  : 1.4.46
+Release  : 163
+URL      : https://files.pythonhosted.org/packages/af/ae/8d8e67f2691f0fdb845df90013d68c12a9127e009b4dedc34a3228f4e5ad/SQLAlchemy-1.4.46.tar.gz
+Source0  : https://files.pythonhosted.org/packages/af/ae/8d8e67f2691f0fdb845df90013d68c12a9127e009b4dedc34a3228f4e5ad/SQLAlchemy-1.4.46.tar.gz
+Source1  : https://files.pythonhosted.org/packages/af/ae/8d8e67f2691f0fdb845df90013d68c12a9127e009b4dedc34a3228f4e5ad/SQLAlchemy-1.4.46.tar.gz.asc
 Summary  : Database Abstraction Library
 Group    : Development/Tools
 License  : MIT
 Requires: pypi-sqlalchemy-filemap = %{version}-%{release}
 Requires: pypi-sqlalchemy-lib = %{version}-%{release}
-Requires: pypi-sqlalchemy-license = %{version}-%{release}
 Requires: pypi-sqlalchemy-python = %{version}-%{release}
 Requires: pypi-sqlalchemy-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
@@ -24,6 +23,9 @@ BuildRequires : pypi-pluggy
 BuildRequires : pypi-pytest
 BuildRequires : pypi-tox
 BuildRequires : pypi-virtualenv
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 =====================
@@ -43,19 +45,10 @@ filemap components for the pypi-sqlalchemy package.
 %package lib
 Summary: lib components for the pypi-sqlalchemy package.
 Group: Libraries
-Requires: pypi-sqlalchemy-license = %{version}-%{release}
 Requires: pypi-sqlalchemy-filemap = %{version}-%{release}
 
 %description lib
 lib components for the pypi-sqlalchemy package.
-
-
-%package license
-Summary: license components for the pypi-sqlalchemy package.
-Group: Default
-
-%description license
-license components for the pypi-sqlalchemy package.
 
 
 %package python
@@ -80,10 +73,10 @@ python3 components for the pypi-sqlalchemy package.
 
 
 %prep
-%setup -q -n SQLAlchemy-1.4.45
-cd %{_builddir}/SQLAlchemy-1.4.45
+%setup -q -n SQLAlchemy-1.4.46
+cd %{_builddir}/SQLAlchemy-1.4.46
 pushd ..
-cp -a SQLAlchemy-1.4.45 buildavx2
+cp -a SQLAlchemy-1.4.46 buildavx2
 popd
 
 %build
@@ -91,12 +84,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1670884256
+export SOURCE_DATE_EPOCH=1672785974
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$FFLAGS -fno-lto "
-export FFLAGS="$FFLAGS -fno-lto "
-export CXXFLAGS="$CXXFLAGS -fno-lto "
+export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
@@ -112,8 +105,6 @@ popd
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/package-licenses/pypi-sqlalchemy
-cp %{_builddir}/SQLAlchemy-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-sqlalchemy/9425969aa233e93e4e8a48a106b23b1aaa529d83 || :
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -138,10 +129,6 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/share/clear/optimized-elf/other*
-
-%files license
-%defattr(0644,root,root,0755)
-/usr/share/package-licenses/pypi-sqlalchemy/9425969aa233e93e4e8a48a106b23b1aaa529d83
 
 %files python
 %defattr(-,root,root,-)
