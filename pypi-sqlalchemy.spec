@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x330239C1C4DAFEE1 (classic@zzzcomputing.com)
 #
 Name     : pypi-sqlalchemy
-Version  : 2.0.0
-Release  : 165
-URL      : https://files.pythonhosted.org/packages/54/55/a475df74f583b4ceeefd5a121fd28045af54efe204863de1e3b154385674/SQLAlchemy-2.0.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/54/55/a475df74f583b4ceeefd5a121fd28045af54efe204863de1e3b154385674/SQLAlchemy-2.0.0.tar.gz
-Source1  : https://files.pythonhosted.org/packages/54/55/a475df74f583b4ceeefd5a121fd28045af54efe204863de1e3b154385674/SQLAlchemy-2.0.0.tar.gz.asc
+Version  : 2.0.1
+Release  : 166
+URL      : https://files.pythonhosted.org/packages/dd/06/d6990db52d7a2c388d6d5ebeea18c11e35e333c2cc2ca9fca50ae9612124/SQLAlchemy-2.0.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/dd/06/d6990db52d7a2c388d6d5ebeea18c11e35e333c2cc2ca9fca50ae9612124/SQLAlchemy-2.0.1.tar.gz
+Source1  : https://files.pythonhosted.org/packages/dd/06/d6990db52d7a2c388d6d5ebeea18c11e35e333c2cc2ca9fca50ae9612124/SQLAlchemy-2.0.1.tar.gz.asc
 Summary  : Database Abstraction Library
 Group    : Development/Tools
 License  : MIT
@@ -24,7 +24,6 @@ BuildRequires : pypi(greenlet)
 BuildRequires : pypi(py)
 BuildRequires : pypi(setuptools)
 BuildRequires : pypi(typing_extensions)
-BuildRequires : pypi(wheel)
 BuildRequires : pypi-pluggy
 BuildRequires : pypi-pytest
 BuildRequires : pypi-tox
@@ -89,10 +88,10 @@ python3 components for the pypi-sqlalchemy package.
 
 
 %prep
-%setup -q -n SQLAlchemy-2.0.0
-cd %{_builddir}/SQLAlchemy-2.0.0
+%setup -q -n SQLAlchemy-2.0.1
+cd %{_builddir}/SQLAlchemy-2.0.1
 pushd ..
-cp -a SQLAlchemy-2.0.0 buildavx2
+cp -a SQLAlchemy-2.0.1 buildavx2
 popd
 
 %build
@@ -100,7 +99,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1674835550
+export SOURCE_DATE_EPOCH=1675378433
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
