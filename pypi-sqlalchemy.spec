@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x330239C1C4DAFEE1 (classic@zzzcomputing.com)
 #
 Name     : pypi-sqlalchemy
-Version  : 2.0.3
-Release  : 168
-URL      : https://files.pythonhosted.org/packages/f1/e7/0152db23d667385d6be69d189de6a3c63d660096faa906b7fb013ee46b23/SQLAlchemy-2.0.3.tar.gz
-Source0  : https://files.pythonhosted.org/packages/f1/e7/0152db23d667385d6be69d189de6a3c63d660096faa906b7fb013ee46b23/SQLAlchemy-2.0.3.tar.gz
-Source1  : https://files.pythonhosted.org/packages/f1/e7/0152db23d667385d6be69d189de6a3c63d660096faa906b7fb013ee46b23/SQLAlchemy-2.0.3.tar.gz.asc
+Version  : 2.0.4
+Release  : 169
+URL      : https://files.pythonhosted.org/packages/12/31/dc22e2255cc148423b02a1e76fabb94df522b1c2ec68c293f44a66309fa1/SQLAlchemy-2.0.4.tar.gz
+Source0  : https://files.pythonhosted.org/packages/12/31/dc22e2255cc148423b02a1e76fabb94df522b1c2ec68c293f44a66309fa1/SQLAlchemy-2.0.4.tar.gz
+Source1  : https://files.pythonhosted.org/packages/12/31/dc22e2255cc148423b02a1e76fabb94df522b1c2ec68c293f44a66309fa1/SQLAlchemy-2.0.4.tar.gz.asc
 Summary  : Database Abstraction Library
 Group    : Development/Tools
 License  : MIT
@@ -88,10 +88,10 @@ python3 components for the pypi-sqlalchemy package.
 
 
 %prep
-%setup -q -n SQLAlchemy-2.0.3
-cd %{_builddir}/SQLAlchemy-2.0.3
+%setup -q -n SQLAlchemy-2.0.4
+cd %{_builddir}/SQLAlchemy-2.0.4
 pushd ..
-cp -a SQLAlchemy-2.0.3 buildavx2
+cp -a SQLAlchemy-2.0.4 buildavx2
 popd
 
 %build
@@ -99,7 +99,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1676045490
+export SOURCE_DATE_EPOCH=1676655918
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
