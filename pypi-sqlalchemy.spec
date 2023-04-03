@@ -6,25 +6,19 @@
 # Source0 file verified with key 0x330239C1C4DAFEE1 (classic@zzzcomputing.com)
 #
 Name     : pypi-sqlalchemy
-Version  : 2.0.7
-Release  : 172
-URL      : https://files.pythonhosted.org/packages/93/06/7574aac5d3f81f367cfd3ff0a9f8bcd1086a3a4f6d5948616cebf93db242/SQLAlchemy-2.0.7.tar.gz
-Source0  : https://files.pythonhosted.org/packages/93/06/7574aac5d3f81f367cfd3ff0a9f8bcd1086a3a4f6d5948616cebf93db242/SQLAlchemy-2.0.7.tar.gz
-Source1  : https://files.pythonhosted.org/packages/93/06/7574aac5d3f81f367cfd3ff0a9f8bcd1086a3a4f6d5948616cebf93db242/SQLAlchemy-2.0.7.tar.gz.asc
+Version  : 2.0.8
+Release  : 173
+URL      : https://files.pythonhosted.org/packages/0f/73/b76a2c8dbe035791e54da29cefaa22c166f875b24da844dc0f16b66e47bb/SQLAlchemy-2.0.8.tar.gz
+Source0  : https://files.pythonhosted.org/packages/0f/73/b76a2c8dbe035791e54da29cefaa22c166f875b24da844dc0f16b66e47bb/SQLAlchemy-2.0.8.tar.gz
+Source1  : https://files.pythonhosted.org/packages/0f/73/b76a2c8dbe035791e54da29cefaa22c166f875b24da844dc0f16b66e47bb/SQLAlchemy-2.0.8.tar.gz.asc
 Summary  : Database Abstraction Library
 Group    : Development/Tools
 License  : MIT
-Requires: pypi-sqlalchemy-filemap = %{version}-%{release}
-Requires: pypi-sqlalchemy-lib = %{version}-%{release}
 Requires: pypi-sqlalchemy-license = %{version}-%{release}
 Requires: pypi-sqlalchemy-python = %{version}-%{release}
 Requires: pypi-sqlalchemy-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-BuildRequires : pypi(cython)
-BuildRequires : pypi(greenlet)
 BuildRequires : pypi(py)
-BuildRequires : pypi(setuptools)
-BuildRequires : pypi(typing_extensions)
 BuildRequires : pypi-pluggy
 BuildRequires : pypi-pytest
 BuildRequires : pypi-tox
@@ -39,24 +33,6 @@ SQLALCHEMY UNIT TESTS
 =====================
 Basic Test Running
 ==================
-
-%package filemap
-Summary: filemap components for the pypi-sqlalchemy package.
-Group: Default
-
-%description filemap
-filemap components for the pypi-sqlalchemy package.
-
-
-%package lib
-Summary: lib components for the pypi-sqlalchemy package.
-Group: Libraries
-Requires: pypi-sqlalchemy-license = %{version}-%{release}
-Requires: pypi-sqlalchemy-filemap = %{version}-%{release}
-
-%description lib
-lib components for the pypi-sqlalchemy package.
-
 
 %package license
 Summary: license components for the pypi-sqlalchemy package.
@@ -78,7 +54,6 @@ python components for the pypi-sqlalchemy package.
 %package python3
 Summary: python3 components for the pypi-sqlalchemy package.
 Group: Default
-Requires: pypi-sqlalchemy-filemap = %{version}-%{release}
 Requires: python3-core
 Provides: pypi(sqlalchemy)
 Requires: pypi(greenlet)
@@ -89,10 +64,10 @@ python3 components for the pypi-sqlalchemy package.
 
 
 %prep
-%setup -q -n SQLAlchemy-2.0.7
-cd %{_builddir}/SQLAlchemy-2.0.7
+%setup -q -n SQLAlchemy-2.0.8
+cd %{_builddir}/SQLAlchemy-2.0.8
 pushd ..
-cp -a SQLAlchemy-2.0.7 buildavx2
+cp -a SQLAlchemy-2.0.8 buildavx2
 popd
 
 %build
@@ -100,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679327922
+export SOURCE_DATE_EPOCH=1680533672
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
@@ -139,14 +114,6 @@ popd
 
 %files
 %defattr(-,root,root,-)
-
-%files filemap
-%defattr(-,root,root,-)
-/usr/share/clear/filemap/filemap-pypi-sqlalchemy
-
-%files lib
-%defattr(-,root,root,-)
-/usr/share/clear/optimized-elf/other*
 
 %files license
 %defattr(0644,root,root,0755)
