@@ -6,11 +6,11 @@
 # Source0 file verified with key 0x330239C1C4DAFEE1 (classic@zzzcomputing.com)
 #
 Name     : pypi-sqlalchemy
-Version  : 2.0.11
-Release  : 176
-URL      : https://files.pythonhosted.org/packages/a6/4d/8ac65a11dc617fd1bc4dac09ac9325def1f15a5e532c3250d501bcdddeb9/SQLAlchemy-2.0.11.tar.gz
-Source0  : https://files.pythonhosted.org/packages/a6/4d/8ac65a11dc617fd1bc4dac09ac9325def1f15a5e532c3250d501bcdddeb9/SQLAlchemy-2.0.11.tar.gz
-Source1  : https://files.pythonhosted.org/packages/a6/4d/8ac65a11dc617fd1bc4dac09ac9325def1f15a5e532c3250d501bcdddeb9/SQLAlchemy-2.0.11.tar.gz.asc
+Version  : 2.0.12
+Release  : 177
+URL      : https://files.pythonhosted.org/packages/4c/28/ea07971d74cc2b03bbc97e6a34a82907777c27111d1215a5e6bbb8fd087b/SQLAlchemy-2.0.12.tar.gz
+Source0  : https://files.pythonhosted.org/packages/4c/28/ea07971d74cc2b03bbc97e6a34a82907777c27111d1215a5e6bbb8fd087b/SQLAlchemy-2.0.12.tar.gz
+Source1  : https://files.pythonhosted.org/packages/4c/28/ea07971d74cc2b03bbc97e6a34a82907777c27111d1215a5e6bbb8fd087b/SQLAlchemy-2.0.12.tar.gz.asc
 Summary  : Database Abstraction Library
 Group    : Development/Tools
 License  : MIT
@@ -64,10 +64,10 @@ python3 components for the pypi-sqlalchemy package.
 
 
 %prep
-%setup -q -n SQLAlchemy-2.0.11
-cd %{_builddir}/SQLAlchemy-2.0.11
+%setup -q -n SQLAlchemy-2.0.12
+cd %{_builddir}/SQLAlchemy-2.0.12
 pushd ..
-cp -a SQLAlchemy-2.0.11 buildavx2
+cp -a SQLAlchemy-2.0.12 buildavx2
 popd
 
 %build
@@ -75,12 +75,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1682608236
+export SOURCE_DATE_EPOCH=1682975189
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 -m build --wheel --skip-dependency-check --no-isolation
 pushd ../buildavx2/
