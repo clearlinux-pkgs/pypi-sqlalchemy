@@ -7,7 +7,7 @@
 #
 Name     : pypi-sqlalchemy
 Version  : 2.0.23
-Release  : 191
+Release  : 192
 URL      : https://files.pythonhosted.org/packages/ee/46/a3196db7ffd2609c7935798730e21bed8806d9bf4401921587dac4be0747/SQLAlchemy-2.0.23.tar.gz
 Source0  : https://files.pythonhosted.org/packages/ee/46/a3196db7ffd2609c7935798730e21bed8806d9bf4401921587dac4be0747/SQLAlchemy-2.0.23.tar.gz
 Summary  : Database Abstraction Library
