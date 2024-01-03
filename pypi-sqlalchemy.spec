@@ -6,14 +6,13 @@
 # autospec commit: c1050fe
 #
 Name     : pypi-sqlalchemy
-Version  : 2.0.24
-Release  : 193
-URL      : https://files.pythonhosted.org/packages/14/72/dd7a1062a9eb723a0c767e151386be92f0cf825317b864e6d5a7c0e60628/SQLAlchemy-2.0.24.tar.gz
-Source0  : https://files.pythonhosted.org/packages/14/72/dd7a1062a9eb723a0c767e151386be92f0cf825317b864e6d5a7c0e60628/SQLAlchemy-2.0.24.tar.gz
+Version  : 2.0.25
+Release  : 194
+URL      : https://files.pythonhosted.org/packages/7b/bb/85bd8e211f54983e927c7cd9b2ad66773fbef507957156fc72e481a62681/SQLAlchemy-2.0.25.tar.gz
+Source0  : https://files.pythonhosted.org/packages/7b/bb/85bd8e211f54983e927c7cd9b2ad66773fbef507957156fc72e481a62681/SQLAlchemy-2.0.25.tar.gz
 Summary  : Database Abstraction Library
 Group    : Development/Tools
 License  : MIT
-Requires: pypi-sqlalchemy-license = %{version}-%{release}
 Requires: pypi-sqlalchemy-python = %{version}-%{release}
 Requires: pypi-sqlalchemy-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
@@ -33,14 +32,6 @@ BuildRequires : pypi-virtualenv
 Developing new Dialects
 ========================
 .. note::
-
-%package license
-Summary: license components for the pypi-sqlalchemy package.
-Group: Default
-
-%description license
-license components for the pypi-sqlalchemy package.
-
 
 %package python
 Summary: python components for the pypi-sqlalchemy package.
@@ -64,10 +55,10 @@ python3 components for the pypi-sqlalchemy package.
 
 
 %prep
-%setup -q -n SQLAlchemy-2.0.24
-cd %{_builddir}/SQLAlchemy-2.0.24
+%setup -q -n SQLAlchemy-2.0.25
+cd %{_builddir}/SQLAlchemy-2.0.25
 pushd ..
-cp -a SQLAlchemy-2.0.24 buildavx2
+cp -a SQLAlchemy-2.0.25 buildavx2
 popd
 
 %build
@@ -75,7 +66,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1703791407
+export SOURCE_DATE_EPOCH=1704298328
 export GCC_IGNORE_WERROR=1
 CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
@@ -113,8 +104,6 @@ ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/package-licenses/pypi-sqlalchemy
-cp %{_builddir}/SQLAlchemy-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-sqlalchemy/5ed1f856b86ff607825ad84842cc48b6ad3a2b7f || :
 python3 -m installer --destdir=%{buildroot} dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -131,10 +120,6 @@ popd
 
 %files
 %defattr(-,root,root,-)
-
-%files license
-%defattr(0644,root,root,0755)
-/usr/share/package-licenses/pypi-sqlalchemy/5ed1f856b86ff607825ad84842cc48b6ad3a2b7f
 
 %files python
 %defattr(-,root,root,-)
