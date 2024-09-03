@@ -6,10 +6,10 @@
 # autospec commit: f35655a
 #
 Name     : pypi-sqlalchemy
-Version  : 2.0.32
-Release  : 202
-URL      : https://files.pythonhosted.org/packages/af/6f/967e987683908af816aa3072c1a6997ac9933cf38d66b0474fb03f253323/SQLAlchemy-2.0.32.tar.gz
-Source0  : https://files.pythonhosted.org/packages/af/6f/967e987683908af816aa3072c1a6997ac9933cf38d66b0474fb03f253323/SQLAlchemy-2.0.32.tar.gz
+Version  : 2.0.33
+Release  : 203
+URL      : https://files.pythonhosted.org/packages/d5/70/6dc437aff20e454e8ac35cdcc74620fad55985b5ea2830fa2d73b02d5805/sqlalchemy-2.0.33.tar.gz
+Source0  : https://files.pythonhosted.org/packages/d5/70/6dc437aff20e454e8ac35cdcc74620fad55985b5ea2830fa2d73b02d5805/sqlalchemy-2.0.33.tar.gz
 Summary  : Database Abstraction Library
 Group    : Development/Tools
 License  : MIT
@@ -64,10 +64,10 @@ python3 components for the pypi-sqlalchemy package.
 
 
 %prep
-%setup -q -n SQLAlchemy-2.0.32
-cd %{_builddir}/SQLAlchemy-2.0.32
+%setup -q -n sqlalchemy-2.0.33
+cd %{_builddir}/sqlalchemy-2.0.33
 pushd ..
-cp -a SQLAlchemy-2.0.32 buildavx2
+cp -a sqlalchemy-2.0.33 buildavx2
 popd
 
 %build
@@ -75,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1722902167
+export SOURCE_DATE_EPOCH=1725393725
 export GCC_IGNORE_WERROR=1
 CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
@@ -114,7 +114,7 @@ LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-sqlalchemy
-cp %{_builddir}/SQLAlchemy-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-sqlalchemy/d154a56519b8b9f3ee849c36fd1fc033ec4212f9 || :
+cp %{_builddir}/sqlalchemy-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-sqlalchemy/d154a56519b8b9f3ee849c36fd1fc033ec4212f9 || :
 python3 -m installer --destdir=%{buildroot} dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
