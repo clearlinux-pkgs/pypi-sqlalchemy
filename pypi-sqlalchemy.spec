@@ -6,10 +6,10 @@
 # autospec commit: f35655a
 #
 Name     : pypi-sqlalchemy
-Version  : 2.0.33
-Release  : 203
-URL      : https://files.pythonhosted.org/packages/d5/70/6dc437aff20e454e8ac35cdcc74620fad55985b5ea2830fa2d73b02d5805/sqlalchemy-2.0.33.tar.gz
-Source0  : https://files.pythonhosted.org/packages/d5/70/6dc437aff20e454e8ac35cdcc74620fad55985b5ea2830fa2d73b02d5805/sqlalchemy-2.0.33.tar.gz
+Version  : 2.0.34
+Release  : 204
+URL      : https://files.pythonhosted.org/packages/90/fa/ca0fdd7b6b0cf53a8237a8ee7e487f8be16e4a2ee6d840d6e8e105cd9c86/sqlalchemy-2.0.34.tar.gz
+Source0  : https://files.pythonhosted.org/packages/90/fa/ca0fdd7b6b0cf53a8237a8ee7e487f8be16e4a2ee6d840d6e8e105cd9c86/sqlalchemy-2.0.34.tar.gz
 Summary  : Database Abstraction Library
 Group    : Development/Tools
 License  : MIT
@@ -64,10 +64,10 @@ python3 components for the pypi-sqlalchemy package.
 
 
 %prep
-%setup -q -n sqlalchemy-2.0.33
-cd %{_builddir}/sqlalchemy-2.0.33
+%setup -q -n sqlalchemy-2.0.34
+cd %{_builddir}/sqlalchemy-2.0.34
 pushd ..
-cp -a sqlalchemy-2.0.33 buildavx2
+cp -a sqlalchemy-2.0.34 buildavx2
 popd
 
 %build
@@ -75,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1725393725
+export SOURCE_DATE_EPOCH=1725492519
 export GCC_IGNORE_WERROR=1
 CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
